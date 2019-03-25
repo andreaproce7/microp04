@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAPUal_GRS5vWDd-cijN2beGc9Rx3mXw74",
+    authDomain: "microp7-8d79c.firebaseapp.com",
+    databaseURL: "https://microp7-8d79c.firebaseio.com",
+    projectId: "microp7-8d79c",
+    storageBucket: "microp7-8d79c.appspot.com",
+    messagingSenderId: "912058064482"
+  };
+  firebase.initializeApp(config);
+</script>
